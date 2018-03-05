@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import debounce from 'lodash/debounce';
-import SearchEngine from './services/searchEngine';
+import SearchEngine from '../services/searchEngine';
 
-import './App.css';
+import '../App.css';
 
 class Searcher extends Component {
   constructor(props) {

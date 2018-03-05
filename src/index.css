@@ -3,3 +3,22 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+header {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.bm-menu {
+  background-color: #222;
+}
+
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+.bm-burger-button {
+  display: none;
+}

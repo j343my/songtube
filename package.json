@@ -3,9 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "last-fm": "^5.2.0",
     "react": "^16.2.0",
+    "react-burger-menu": "^2.3.0",
+    "react-circular-progressbar": "^0.8.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "youtube-search": "^1.0.10",
+    "yt-player": "^2.5.3"
   },
   "scripts": {
     "start": "react-scripts start",
