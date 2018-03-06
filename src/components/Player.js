@@ -12,7 +12,6 @@ class Player extends Component {
     }
     // PLAYER
     this.player = null;
-    this.currentIndex = 0;
   }
 
   setPlayer(item) {
@@ -21,10 +20,9 @@ class Player extends Component {
     this.player.setVolume(100);
   }
 
-  registerEvents() {
+  registerEvents(props) {
     this.player.on('ended', () => {
-      this.currentIndex++;
-      this.setPlayer(this.props.items[this.currentIndex]);
+      props.nextSong()
     })
     this.player.on('timeupdate', (seconds) => {
       const percentage = seconds * 100 / this.player.getDuration();
@@ -45,30 +43,34 @@ class Player extends Component {
       annotations: false,
       info: false,
     });
-    this.setPlayer(this.props.items[this.currentIndex]);
+    this.setPlayer(this.props.items[this.props.currentIndex]);
     this.registerEvents(this.props);
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.items[this.currentIndex] != prevProps.items[this.currentIndex]) {
-      this.setPlayer(this.props.items[this.currentIndex]);
+    const actualTrack = `${this.props.tracks[this.props.currentIndex].name} - ${this.props.tracks[this.props.currentIndex].artistName}`;
+    const prevTrack = `${prevProps.tracks[prevProps.currentIndex].name} - ${prevProps.tracks[prevProps.currentIndex].artistName}`;
+
+    if (actualTrack != prevTrack) {
+      this.setPlayer(this.props.items[0]);
     }
   }
 
   render() {
     const { percentage } = this.state;
-    const { artist, tracks } = this.props;
-    console.log(percentage)
+    const { artist, tracks, nextSong, prevSong, currentIndex } = this.props;
     return (
       <React.Fragment>
         <div className="PlayerControls">
           <ArtistPreview
             percentage={percentage}
-            artist={artist}
+            artist={tracks[currentIndex]}
           />
           <PlayerControls
-            track={tracks[this.currentIndex]}
+            track={tracks[currentIndex]}
             artist={artist}
+            nextSong={nextSong}
+            prevSong={prevSong}
           />
         </div>
         <video id="player" />

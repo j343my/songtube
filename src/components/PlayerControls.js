@@ -8,15 +8,15 @@ class PlayerControls extends Component {
   }
 
   render() {
-    const { track } = this.props;
+    const { track, nextSong, prevSong } = this.props;
     return (
       <div className="PlayerInfo">
         <h3 className="SongTitle">{track.name}</h3>
-        <h4 className="ArtistNameTitle">{track.artistName}</h4>
+        <h4 className="ArtistNameTitle">{!!track.artistName ? track.artistName : track.artist.name}</h4>
         <div className="playerButtons">
-          <i className="material-icons player-icon">skip_previous</i>
+          <i className="material-icons player-icon" onClick={prevSong}>skip_previous</i>
           <i className="material-icons player-icon">play_arrow</i>
-          <i className="material-icons player-icon">skip_next</i>
+          <i className="material-icons player-icon" onClick={nextSong}>skip_next</i>
         </div>
       </div>
     );

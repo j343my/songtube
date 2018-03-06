@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "geocoder": "^0.2.3",
     "last-fm": "^5.2.0",
     "react": "^16.2.0",
     "react-burger-menu": "^2.3.0",

@@ -10,10 +10,12 @@ class ArtistPreview extends Component {
 
   render() {
     const { artist, percentage } = this.props;
-    if(!artist.images) {
+    if(!artist.images && !artist.image) {
       return false;
     }
-    const image = artist.images[artist.images.length - 1]
+    const image = !!artist.images ?
+                    artist.images[artist.images.length - 1] :
+                    artist.image[artist.image.length - 1]['#text'];
 
     return (
       <React.Fragment>

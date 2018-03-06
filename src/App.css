@@ -119,7 +119,50 @@ input {
  background-color: #ccc;
 }
 
+.menuItem {
+  display: flex !important;
+  flex-direction: row;
+  padding: 8px 4px;
+}
 
+.menuItem p {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;
+  text-align: left;
+  text-overflow: ellipsis;
+}
+
+.menuItem p.ArtistNameTitle {
+  font-size: .7em;
+}
+
+.itemsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.imageMenuContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageMenu {
+  width: 60px;
+  border-radius: 50%;
+  height: 60px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .CircularProgressbar-path {
   stroke: #f68e02 !important;
